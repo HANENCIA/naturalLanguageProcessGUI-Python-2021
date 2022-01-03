@@ -1,0 +1,12 @@
+{
+  "WORDCLOUD": {
+    "CSV_FILE": "./sample/data/education.csv",
+    "FONT_FILE": "./common/fonts/08SeoulNamsanB.ttf",
+    "CSV_SEP_IDX": 0,
+    "CSV_ENCODING_IDX": 0
+  },
+
+  "WORDCOUNT": {
+    "WORDCOUNT_LIMIT": 1000
+  }
+}

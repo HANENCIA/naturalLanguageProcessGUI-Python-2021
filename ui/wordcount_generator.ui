@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WordcloudMainWindow</class>
+ <widget class="QMainWindow" name="WordcloudMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1297</width>
+    <height>798</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1920</width>
+    <height>1080</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>단어 빈도 분석</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../common/resources/app_icon.png</normaloff>../common/resources/app_icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="centralwidget_grid">
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="main_hlayout">
+      <item>
+       <layout class="QVBoxLayout" name="main_vlayout">
+        <item>
+         <widget class="QGroupBox" name="file_grp">
+          <property name="title">
+           <string>파일</string>
+          </property>
+          <layout class="QVBoxLayout" name="file_grp_vlayout">
+           <item>
+            <layout class="QHBoxLayout" name="file_csv_file_hlayout">
+             <item>
+              <widget class="QLabel" name="file_csv_file_lbl">
+               <property name="text">
+                <string>데이터 파일</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="file_csv_file_ledit"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="file_csv_file_btn">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="file_csv_file_columns_cmbbox"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="stopwords_grp">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="title">
+           <string>불용어 설정</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <layout class="QHBoxLayout" name="stopwords_opt_hlayout">
+             <item>
+              <widget class="QCheckBox" name="stopwords_opt_chkbox">
+               <property name="text">
+                <string>불용어를 설정합니다</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="stopwords_hlayout">
+             <item>
+              <widget class="QLabel" name="stopwords_lbl">
+               <property name="text">
+                <string>불용어</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="stopwords_ledit"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="stopwords_btn">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="stopwords_warn_lbl">
+             <property name="text">
+              <string>예시: 사과,바나나,키위 (쉼표로 구분)</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="opt_grp">
+        <property name="title">
+         <string>그래프 옵션</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <layout class="QHBoxLayout" name="opt_wordcountlim_hlayout">
+           <item>
+            <widget class="QLabel" name="opt_wordcountlim_lbl">
+             <property name="text">
+              <string>표시할 단어의 수</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="opt_wordcountlim_sbox">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+             <property name="value">
+              <number>20</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <layout class="QHBoxLayout" name="opt_fontfamily_sample_hlayout">
+           <item>
+            <widget class="QLabel" name="opt_barcolor_sample_lbl">
+             <property name="text">
+              <string>There is no cow level
+젖소방은 없습니다</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="0">
+          <layout class="QHBoxLayout" name="opt_barcolor_hlayout">
+           <item>
+            <widget class="QLabel" name="opt_barcolor_lbl">
+             <property name="text">
+              <string>바 색상</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="opt_barcolor_cmbbox"/>
+           </item>
+          </layout>
+         </item>
+         <item row="3" column="0">
+          <layout class="QHBoxLayout" name="opt_fontfamily_hlayout">
+           <item>
+            <widget class="QLabel" name="opt_fontfamily_lbl">
+             <property name="text">
+              <string>글꼴 집합</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="opt_fontfamily_cmbbox"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <widget class="QSplitter" name="result_splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QTableView" name="preview_tblview"/>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <layout class="QVBoxLayout" name="wordcloud_canvas"/>
+      </widget>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <layout class="QHBoxLayout" name="btn_grp">
+      <item>
+       <widget class="QPushButton" name="view_preview_table_btn">
+        <property name="text">
+         <string>빈도 분석 (&amp;A)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="make_bargraph_btn">
+        <property name="text">
+         <string>막대 그래프 그리기 (&amp;D)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="save_preview_table_btn">
+        <property name="text">
+         <string>빈도 분석 결과 저장 (&amp;S)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="save_bargraph_btn">
+        <property name="text">
+         <string>막대 그래프 저장 (&amp;G)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionqnfdydd">
+   <property name="text">
+    <string>불용어 제거</string>
+   </property>
+  </action>
+  <action name="actionq">
+   <property name="text">
+    <string>종료</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

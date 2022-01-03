@@ -1,0 +1,1 @@
+pyinstaller -w -i ./common/resources/app_icon.ico --add-data "./build_addon;./" --add-data "./common;./common" --add-data "./sample;./sample" --add-data "./ui;./ui" --add-data "./config.json;./" main.py 
