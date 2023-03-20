@@ -19,6 +19,7 @@ import wordcloud_generator
 
 ui_main = uic.loadUiType(ui_main)[0]
 
+
 class NLPMainWindow(QMainWindow, ui_main):
     def __init__(self, parent=None):
         super(NLPMainWindow, self).__init__(parent)
@@ -36,7 +37,6 @@ class NLPMainWindow(QMainWindow, ui_main):
         except Exception as e:
             QMessageBox.critical(self, messagebox_error_title_kr, str(sys.exc_info()[1]))
             sys.exit(1)
-     
 
     ## Event Handler
     # closeEvent
@@ -44,32 +44,31 @@ class NLPMainWindow(QMainWindow, ui_main):
         self.p.terminate()
         sys.exit(0)
 
-
     # QAction
     def action_ehandler(self, app_type):
         if app_type == 'wordcount':
             self.p = WordcountModule()
-            self.p.Daemon=True
+            self.p.Daemon = True
             self.p.start()
         elif app_type == 'wordcloud':
             self.p = WordcloudModule()
-            self.p.Daemon=True
+            self.p.Daemon = True
             self.p.start()
-        
 
     # QFileDialog.getOpenFileName
     def file_open(self):
-        file_path = QFileDialog.getOpenFileName(self, ui_file_dialouge_read_title_kr, filter=ui_file_dialogue_csv_filter_kr)
+        file_path = QFileDialog.getOpenFileName(self, ui_file_dialouge_read_title_kr,
+                                                filter=ui_file_dialogue_csv_filter_kr)
         if len(file_path[0]) > 0:
             csv_idx = ui_file_dialogue_csv_filter_kr.split(';;').index(file_path[1])
-            csv_sep_idx = csv_idx%2
-            csv_encoding_idx = csv_idx//2
+            csv_sep_idx = csv_idx % 2
+            csv_encoding_idx = csv_idx // 2
             self.table_rawdata(file_path[0], csv_sep_idx, csv_encoding_idx)
-    
 
     def table_rawdata(self, csv_file, csv_sep_idx, csv_encoding_idx):
         try:
-            rawdata_df = pd.read_csv(csv_file, sep=self.csv_sep_dict[csv_sep_idx], encoding=self.csv_encoding_dict[csv_encoding_idx])
+            rawdata_df = pd.read_csv(csv_file, sep=self.csv_sep_dict[csv_sep_idx],
+                                     encoding=self.csv_encoding_dict[csv_encoding_idx])
             self.table_rawdata_model = PandasTableModel(rawdata_df)
             self.rawdata_tblview.setModel(self.table_rawdata_model)
             self.rawdata_tblview.setEditTriggers(QAbstractItemView.NoEditTriggers)

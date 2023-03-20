@@ -1,0 +1,17 @@
+BeautifulSoup==3.2.2
+blinker==1.5
+cchardet==2.1.7
+chardet==5.1.0
+colorama==0.4.6
+html5lib==1.1
+matplotlib==3.7.1
+MeCab==0.996.3
+numpy==1.24.2
+pandas==1.5.3
+Pillow==9.4.0
+PyJWT==2.6.0
+pymongo==4.3.3
+PyQt5==5.15.9
+requests==2.28.2
+six==1.16.0
+urllib3==1.26.15
